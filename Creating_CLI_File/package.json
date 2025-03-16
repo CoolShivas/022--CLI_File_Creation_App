@@ -1,0 +1,11 @@
+{
+  "name": "creating_cli_file",
+  "version": "1.0.0",
+  "description": "Create a CLI File Creation App Using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shiva Chouhan",
+  "license": "ISC"
+}
