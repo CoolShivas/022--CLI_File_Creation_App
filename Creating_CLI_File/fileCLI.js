@@ -1,4 +1,5 @@
 import readline from "readline";
+import fs from "fs";
 
 // // // // readline.createInterface for read and write data;
 const lineReader = readline.createInterface({
@@ -7,13 +8,26 @@ const lineReader = readline.createInterface({
 });
 
 const fileCreation = () => {
-    console.log("\nEnter your file name : ");
-    console.log("Enter the content of your file : ");
-    lineReader.close(); // // Closing the interface now;
+    lineReader.question("Enter your file name : ", (filename) => {
+        lineReader.question(`Enter the content of your file : `, (content) => {
+            fs.writeFile(`${filename}.txt`, content, (err) => {
+                if(err)
+                {
+                    console.log(`Error occuring while creating a file : , ${err.message}`);
+                }
+                else
+                {
+                    console.log(`File ${filename}.txt created successfully !`);
+                }
+                lineReader.close();
+            })
+        })
+    })    
 };
 
 fileCreation();
 // // // // Here, we are getting the Output on Terminal as :-
-// // // // Enter your file name : 
-// // // // Enter the content of your file : 
+// // // // Enter your file name : shiva
+// // // // Enter the content of your file : My name is shiva Chouhan.
+// // // // File shiva.txt created successfully !
 // // // // Completed running 'fileCLI.js'
